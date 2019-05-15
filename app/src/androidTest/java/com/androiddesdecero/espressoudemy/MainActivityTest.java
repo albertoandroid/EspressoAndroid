@@ -20,6 +20,10 @@ import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyLeftOf;
+import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withHint;
@@ -85,6 +89,22 @@ public class MainActivityTest {
                 .perform(openLinkWithText("www.google.es"));
 
 
+        //View Assertions
+
+        onView(withId(R.id.mainActivityTv))
+                .check(matches(isDisplayed()));
+
+        onView(withId(R.id.mainActivityTv))
+                .check(matches(withText("Prueba Espresso")));
+
+        onView(withId(R.id.mainActivityTv))
+                .check(matches(withText(R.string.app_name)));
+
+        onView(withId(R.id.mainActivityTv))
+                .check(isCompletelyLeftOf(withId(R.id.mainActivityEt)));
+
+        onView(withId(R.id.mainActivityTv))
+                .check(doesNotExist());
 
     }
 
