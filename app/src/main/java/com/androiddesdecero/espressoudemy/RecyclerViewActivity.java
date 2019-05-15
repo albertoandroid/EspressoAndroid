@@ -70,6 +70,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         personas.add(new Persona("Adolfo", "33"));
         personas.add(new Persona("Estrella", "22"));
         personas.add(new Persona("Manuel", "20"));
-        personas.add(new Persona("Alfonso", "50"));
+        personas.add(new Persona("Pablo", "50"));
     }
 }
