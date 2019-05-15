@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">EspressoUdemy</string>
+
+    <string name="login_activity_username_hint">User Name</string>
+    <string name="login_activity_password_hint">Password</string>
+    <string name="login_activity_username_error">Username ha de ser más de 4 caracteres</string>
+    <string name="login_activity_password_error">Password ha de ser más de 4 caracteres</string>
 </resources>
