@@ -7,10 +7,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
+import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.openLinkWithText;
+import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withHint;
@@ -32,6 +41,8 @@ public class MainActivityTest {
 
     @Test
     public void myFirstTest(){
+
+        //View Matcher
         onView(withId(R.id.mainActivityTv));
 
         onView(withText("Prueba Espresso"));
@@ -47,6 +58,34 @@ public class MainActivityTest {
         onView(withText(startsWith("Prueba")));
 
         onView(allOf(instanceOf(TextView.class), withId(R.id.mainActivityTv)));
+
+
+        //View Action
+
+        onView(withId(R.id.mainActivityEt))
+                .perform(typeText("30"));
+
+        onView(withId(R.id.mainActivityEt))
+                .perform(replaceText("34"));
+
+        onView(withId(R.id.mainActivityEt))
+                .perform(clearText());
+
+        onView(withId(R.id.mainActivityBt))
+                .perform(click());
+
+        onView(withId(R.id.mainActivityRl))
+                .perform(swipeLeft());
+
+        onView(withId(R.id.mainActivityEt))
+                .perform(typeText("34")
+                        , ViewActions.closeSoftKeyboard());
+
+        onView(withId(R.id.mainActivityTv))
+                .perform(openLinkWithText("www.google.es"));
+
+
+
     }
 
 
