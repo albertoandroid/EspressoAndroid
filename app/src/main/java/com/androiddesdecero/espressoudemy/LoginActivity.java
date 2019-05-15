@@ -2,6 +2,7 @@ package com.androiddesdecero.espressoudemy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,12 +53,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void doLoginBackEnd(String userName, String password){
-        /*
+
         if(userName.equals("Alberto")&& password.equals("1234")){
             Intent intent = new Intent(getApplicationContext(), RecyclerViewActivity.class);
             intent.putExtra("USER", userName);
             startActivity(intent);
         }
-        */
+
     }
 }
