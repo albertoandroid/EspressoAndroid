@@ -74,4 +74,20 @@ public class LoginActivityTest {
                 .check(matches(withText(R.string.login_activity_password_error)));
     }
 
+    @Test
+    public void validUserNameAndPasswordNotShowErrorMessageTest(){
+        onView(withId(R.id.loginActivityEtUserName))
+                .perform(typeText("alberto"));
+
+        onView(withId(R.id.loginActivityEtPassword))
+                .perform(typeText("1234"));
+
+        onView(withId(R.id.loginActivityBtLogin))
+                .perform(click());
+
+        onView(withId(R.id.loginActivityTvError))
+                .check(matches(not(isDisplayed())));
+
+    }
+
 }
