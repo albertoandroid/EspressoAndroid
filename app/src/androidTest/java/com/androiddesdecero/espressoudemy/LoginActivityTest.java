@@ -8,10 +8,14 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withHint;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 
@@ -38,6 +42,36 @@ public class LoginActivityTest {
     public void hintIsDisplayedInEditTextPasswordTest(){
         onView(withId(R.id.loginActivityEtPassword))
                 .check(matches(withHint(R.string.login_activity_password_hint)));
+    }
+
+    @Test
+    public void userNameLenghRuleErrorTest(){
+        onView(withId(R.id.loginActivityEtUserName))
+                .perform(typeText("alb"));
+
+        onView(withId(R.id.loginActivityBtLogin))
+                .perform(click());
+
+        onView(withId(R.id.loginActivityTvError))
+                .check(matches(isDisplayed()))
+                .check(matches(withText(R.string.login_activity_username_error)));
+    }
+
+    @Test
+    public void passwordLenghRuleErrorTest(){
+
+        onView(withId(R.id.loginActivityEtUserName))
+                .perform(typeText("alberto"));
+
+        onView(withId(R.id.loginActivityEtPassword))
+                .perform(typeText("123"));
+
+        onView(withId(R.id.loginActivityBtLogin))
+                .perform(click());
+
+        onView(withId(R.id.loginActivityTvError))
+                .check(matches(isDisplayed()))
+                .check(matches(withText(R.string.login_activity_password_error)));
     }
 
 }
