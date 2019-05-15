@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.androiddesdecero.espressoudemy.utils.Callback;
+import com.androiddesdecero.espressoudemy.utils.EspressoIdlingResource;
 import com.androiddesdecero.espressoudemy.utils.WebServiceMock;
 
 public class IdlingActivity extends AppCompatActivity {
@@ -43,10 +44,14 @@ public class IdlingActivity extends AppCompatActivity {
     }
 
     private void cargarDatos(){
+        EspressoIdlingResource.increment();
         WebServiceMock webServiceMock = new WebServiceMock();
         webServiceMock.login("Alberto", "1234", new Callback() {
             @Override
             public void onSuccess(String response) {
+                if(!EspressoIdlingResource.getIdlingResource().isIdleNow()){
+                    EspressoIdlingResource.decrement();
+                }
                 idlingActivityTv.setText("Alberto");
             }
 
