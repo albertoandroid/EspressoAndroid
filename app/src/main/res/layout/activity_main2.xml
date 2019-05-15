@@ -17,7 +17,7 @@
             android:id="@+id/activityMain2TvMiFirstTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mi primer Espreso test" />
+            android:text="Mi primer Expresso test" />
 
         <Button
             android:id="@+id/activityMain2BtReset"
