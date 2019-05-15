@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/activityMain2ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/activityMain2TvMiFirstTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mi primer Espreso test" />
+
+        <Button
+            android:id="@+id/activityMain2BtReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset" />
+
+        <EditText
+            android:id="@+id/activityMain2EtMiFirstEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/activityMain2btChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change" />
+
+        <Button
+            android:id="@+id/activityMain2BtGoToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ir a la Segunda Activitydad" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvNoSeMuestra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activityMain2ll"
+        android:text="No me muestra" />
+</RelativeLayout>
